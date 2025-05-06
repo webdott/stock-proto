@@ -8,9 +8,9 @@ import { cn } from '@/lib/utils';
 import { generateSampleData } from '@/lib/stocks';
 import { TradeDay, ZoomLevel } from '@/types/stocks';
 
-import { GestureDetector } from './gesture-detector';
+import { GestureDetectorDemo } from './gesture-detector-demo';
 
-export const StockTimeline = () => {
+export const StockTimelineDemo = () => {
 	const [data] = useState(generateSampleData);
 	const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(ZoomLevel.YEARS);
 	const [selectedYear, setSelectedYear] = useState<number>(2025);
@@ -89,10 +89,10 @@ export const StockTimeline = () => {
 	};
 
 	return (
-		<GestureDetector
+		<GestureDetectorDemo
 			onZoomIn={handleZoomIn}
 			onZoomOut={handleZoomOut}
-			onPan={(_) => {
+			onPan={(deltaX) => {
 				// We're using Framer Motion's built-in drag for panning in the days view
 				// This onPan handler is kept for potential future use
 			}}>
@@ -266,6 +266,6 @@ export const StockTimeline = () => {
 					)}
 				</AnimatePresence>
 			</div>
-		</GestureDetector>
+		</GestureDetectorDemo>
 	);
 };
