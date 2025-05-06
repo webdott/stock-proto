@@ -6,7 +6,7 @@ interface GestureDetectorProps {
 	children?: ReactNode;
 	onZoomIn: () => void;
 	onZoomOut: () => void;
-	onPan: (deltaX: number, deltaY?: number) => void;
+	onPan?: (deltaX: number, deltaY?: number) => void;
 }
 
 export const GestureDetectorDemo = ({
@@ -89,14 +89,14 @@ export const GestureDetectorDemo = ({
 				if (lastTouchPosition.current) {
 					const deltaX = currentCenter.x - lastTouchPosition.current.x;
 					const deltaY = currentCenter.y - lastTouchPosition.current.y;
-					onPan(deltaX, deltaY);
+					onPan?.(deltaX, deltaY);
 				}
 				lastTouchPosition.current = currentCenter;
 			} else if (e.touches.length === 1 && lastTouchPosition.current) {
 				// Handle pan with one finger
 				const deltaX = e.touches[0].clientX - lastTouchPosition.current.x;
 				const deltaY = e.touches[0].clientY - lastTouchPosition.current.y;
-				onPan(deltaX, deltaY);
+				onPan?.(deltaX, deltaY);
 				lastTouchPosition.current = {
 					x: e.touches[0].clientX,
 					y: e.touches[0].clientY,

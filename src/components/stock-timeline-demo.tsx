@@ -89,13 +89,7 @@ export const StockTimelineDemo = () => {
 	};
 
 	return (
-		<GestureDetectorDemo
-			onZoomIn={handleZoomIn}
-			onZoomOut={handleZoomOut}
-			onPan={(deltaX) => {
-				// We're using Framer Motion's built-in drag for panning in the days view
-				// This onPan handler is kept for potential future use
-			}}>
+		<GestureDetectorDemo onZoomIn={handleZoomIn} onZoomOut={handleZoomOut}>
 			<div
 				className='relative w-full h-[600px] overflow-hidden bg-gray-50 p-4'
 				ref={containerRef}>
