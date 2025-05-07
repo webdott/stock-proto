@@ -13,7 +13,6 @@ import { useDebouncedCallback } from 'use-debounce';
 
 import { generateSampleData } from '@/lib/stocks';
 import { TradeDay, ZoomLevel } from '@/types/stocks';
-import { isObjectCenteredHorizontally } from '@/lib/geometry';
 
 export const StockTimeline = () => {
 	const [data] = useState(generateSampleData);
